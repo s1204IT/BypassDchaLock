@@ -18,14 +18,14 @@ public class MainActivity extends Activity
 		// ナビバーを表示
 		System.putInt(getContentResolver(), "hide_navigation_bar", 0);
 		
-		// 3秒後に設定アプリを開く
+		// 1.5秒後に設定アプリを開く
 		new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					Intent o = new Intent(Settings.ACTION_SETTINGS);
 					startActivity(o);
 				}
-			}, 3000);
+			}, 1500);
 		
     }
 }

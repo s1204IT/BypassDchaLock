@@ -24,9 +24,10 @@ public class MainActivity extends Activity {
 			Global.putInt(getContentResolver(), "development_settings_enabled", 1);
 			// USBデバッグを有効化
 			Global.putInt(getContentResolver(), "adb_enabled", 1);
+			// スクショを許可
+			System.putInt(getContentResolver(), "screen_capture_on", 1);
 			// 開発者向けオプションを開く
-			Intent o = new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
-			startActivity(o);
+			startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS));
 
 			new Handler().postDelayed(new Runnable() {
 				@Override
@@ -42,12 +43,13 @@ public class MainActivity extends Activity {
 			System.putInt(getContentResolver(), "dcha_state", 3);
 			// ナビバーを表示
 			System.putInt(getContentResolver(), "hide_navigation_bar", 0);
+			// スクショを許可
+			System.putInt(getContentResolver(), "screen_capture_on", 1);
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					// 0.8秒後に設定アプリを開く
-					Intent o = new Intent(Settings.ACTION_SETTINGS);
-					startActivity(o);
+					startActivity(new Intent(Settings.ACTION_SETTINGS));
 				}
 			}, 800);
 		}

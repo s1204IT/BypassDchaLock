@@ -5,7 +5,7 @@
     android:gravity="center">
 
     <TextView
-        android:text="dcha_stateを３に変更しました\n設定アプリを開きます..."
+        android:text="dcha_stateを３に変更しました\nスクショを許可しました\n設定アプリを開きます..."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="HardcodedText" />

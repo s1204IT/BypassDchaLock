@@ -5,7 +5,7 @@
     android:gravity="center">
 
     <TextView
-        android:text="dcha_stateを３に変更しました\nUSBデバッグを有効にしました\n開発者向けオプションを開きます..."
+        android:text="dcha_stateを３に変更しました\nUSBデバッグを有効にしました\nスクショを許可しました\n開発者向けオプションを開きます..."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="HardcodedText" />

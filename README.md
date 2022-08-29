@@ -1,5 +1,10 @@
 # Bypass DchaLock
 [![Build](https://github.com/s1204IT/BypassDchaLock/actions/workflows/build.yml/badge.svg)](https://github.com/s1204IT/BypassDchaLock/actions/workflows/build.yml)
+
+ダウンロードリンク
+```
+https://github.com/s1204IT/BypassDchaLock/releases/latest/download/BypassDchaLock.apk
+```
 ## 注意点
 TouchSetupLoginの置換手順は[**こちら**](https://github.com/mouseos/Cpad_dcha_3_changer/blob/main/README.md#%E6%BA%96%E5%82%99 "mouseos/Cpad_dcha_3_changer")からご確認願います｡
 <br>

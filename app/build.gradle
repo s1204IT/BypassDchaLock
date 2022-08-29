@@ -13,8 +13,8 @@ android {
         minSdkVersion 22
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 22
-        versionCode 6
-        versionName "6"
+        versionCode 7
+        versionName "1.4.1"
     }
     buildTypes {
         release {

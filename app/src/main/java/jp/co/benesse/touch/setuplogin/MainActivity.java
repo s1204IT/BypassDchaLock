@@ -12,18 +12,22 @@ import android.content.Intent;
 
 import java.io.File;
 
+import static android.os.Build.MODEL;
+
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-		if (!new File("/factory/count_dcha_completed").exists()) {
-			// 文字を表示
-			setContentView(R.layout.skip);
-		} else if (new File("/factory/ignore_dcha_completed").exists()) {
-			// 文字を表示
-			setContentView(R.layout.ignore);
-		} else if (getApplication().checkCallingOrSelfPermission(permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+		// CTX,CTZ での検証
+		if (MODEL.equals("TAB-A05-BD")||MODEL.equals("TAB-A05-BA1")) {
+			if (!new File("/factory/count_dcha_completed").exists()) {
+				// 文字を表示
+				setContentView(R.layout.skip);
+				return;
+			}
+		}
+		// 標準動作
+		if (getApplication().checkCallingOrSelfPermission(permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
 			// 文字を表示
 			setContentView(R.layout.granted);
 			// dcha_stateを３に変更

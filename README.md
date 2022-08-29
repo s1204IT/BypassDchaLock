@@ -1,12 +1,11 @@
 # Bypass DchaLock
-
+[![Build](https://github.com/s1204IT/BypassDchaLock/actions/workflows/build.yml/badge.svg)](https://github.com/s1204IT/BypassDchaLock/actions/workflows/build.yml)
 ## 注意点
 TouchSetupLoginの置換手順は[**こちら**](https://github.com/mouseos/Cpad_dcha_3_changer/blob/main/README.md#%E6%BA%96%E5%82%99 "mouseos/Cpad_dcha_3_changer")からご確認願います｡
-
-:warning: `/factory/count_dcha_completed`が存在しない時でも実行されます｡<br>
+<br>
 
 ## 変更点
-`WRITE_SECURE_SETTINGS`の権限付与の有無で挙動が変わります
+`WRITE_SECURE_SETTINGS`の権限付与の有無､ 特殊ファイルの有無で挙動が変わります
 #### Denied
 - `dcha_state`を３に変更
 - ナビバーを表示
@@ -18,7 +17,7 @@ TouchSetupLoginの置換手順は[**こちら**](https://github.com/mouseos/Cpad
 - USBデバッグを有効化
 - スクリーンショットを許可
 - 開発者向けオプションを開く
-- 0.5秒後に`dcha_state`を０に変更
+- 0.7秒後に`dcha_state`を０に変更
 
 セットアップ後は開発者向けオプションを開くためのアプリとして使う事が出来ます｡
 

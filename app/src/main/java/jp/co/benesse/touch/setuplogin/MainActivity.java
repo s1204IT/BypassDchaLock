@@ -10,14 +10,22 @@ import android.provider.Settings.System;
 import android.provider.Settings.Global;
 import android.content.Intent;
 
+import java.io.File;
+
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-		if (getApplication().checkCallingOrSelfPermission(permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+		if (!new File("/factory/count_dcha_completed").exists()) {
 			// 文字を表示
-			setContentView(R.layout.main_granted);
+			setContentView(R.layout.skip);
+		} else if (new File("/factory/ignore_dcha_completed").exists()) {
+			// 文字を表示
+			setContentView(R.layout.ignore);
+		} else if (getApplication().checkCallingOrSelfPermission(permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED) {
+			// 文字を表示
+			setContentView(R.layout.granted);
 			// dcha_stateを３に変更
 			System.putInt(getContentResolver(), "dcha_state", 3);
 			// 開発者向けオプションの表示を有効化
@@ -32,10 +40,10 @@ public class MainActivity extends Activity {
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					// 0.5秒後にdcha_stateを０に変更
+					// 0.7秒後にdcha_stateを０に変更
 					System.putInt(getContentResolver(), "dcha_state", 0);
 				}
-			}, 500);
+			}, 700);
 		} else {
 			// 文字を表示
 			setContentView(R.layout.main);

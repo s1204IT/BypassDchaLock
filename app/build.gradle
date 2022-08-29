@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+        }
+    }
     compileSdkVersion 22
     buildToolsVersion "28.0.3"
 
@@ -9,8 +13,8 @@ android {
         minSdkVersion 22
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 22
-        versionCode 5
-        versionName "5"
+        versionCode 6
+        versionName "6"
     }
     buildTypes {
         release {

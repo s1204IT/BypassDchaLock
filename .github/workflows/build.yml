@@ -1,6 +1,13 @@
 name: Build
 
-on: [ push, pull_request, fork ]
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'app/**'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -9,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ windows-latest ]
+        os: [ ubuntu-20.04 ]
 
     steps:
       - name: Check out

@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'app/**'
+      - '.github/workflows/build.yml'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -16,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-20.04 ]
+        os: [ ubuntu-20.04, windows-2019 ]
 
     steps:
       - name: Check out

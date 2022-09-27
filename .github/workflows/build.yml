@@ -2,10 +2,12 @@ name: Build
 
 on:
   push:
-    branches: [ main ]
     paths:
       - 'app/**'
       - '.github/workflows/build.yml'
+      - 'build.gradle'
+      - 'settings.gradle'
+      - 'gradle/**'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -21,15 +23,18 @@ jobs:
 
     steps:
       - name: Check out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up JDK 11
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: '11'
+          cache: 'gradle'
+          checkout-latest: true
       - name: Build with Gradle
         run: ./gradlew :a:assemble
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.os }}-artifact
           path: app/build/outputs

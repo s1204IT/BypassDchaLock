@@ -30,7 +30,7 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'gradle'
-          checkout-latest: true
+          check-latest: true
       - name: Build with Gradle
         run: ./gradlew :a:assemble
       - name: Upload build artifact

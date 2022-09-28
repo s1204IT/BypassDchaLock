@@ -9,19 +9,14 @@ on:
       - 'settings.gradle'
       - 'gradle/**'
   pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-20.04, windows-2019 ]
+    name: Build
+    runs-on: ubuntu-20.04
 
-    steps:
+  steps:
       - name: Check out
         uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -36,5 +31,5 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.os }}-artifact
+          name: artifact
           path: app/build/outputs

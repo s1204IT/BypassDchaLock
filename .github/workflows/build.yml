@@ -10,6 +10,15 @@ on:
       - 'gradle/**'
   pull_request:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag'
+        required: true
+      release:
+        description: 'Upload to Release'
+        default: false
+        required: true
+        type: boolean
 
 jobs:
   build:
@@ -30,5 +39,13 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: artifact
+          name: build-outputs
           path: app/build/outputs
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: ${{ github.event.inputs.release == 'true' }}
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          draft: true
+          prerelease: false
+          files: app/build/outputs/apk/debug/app-debug.apk

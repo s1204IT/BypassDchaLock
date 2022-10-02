@@ -12,32 +12,21 @@ import java.io.File;
 import static android.os.Build.MODEL;
 
 public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-		// CTX,CTZ での検証
-		if (MODEL.equals("TAB-A05-BD")||MODEL.equals("TAB-A05-BA1")) {
-			if (!new File("/factory/count_dcha_completed").exists()) {
-				// 文字を表示
-				setContentView(R.layout.skip);
-				return;
-			}
-		}
-		// 標準動作
-		// 文字を表示
-		setContentView(R.layout.main);
-		// dcha_stateを３に変更
-		System.putInt(getContentResolver(), "dcha_state", 3);
-		// ナビバーを表示
-		System.putInt(getContentResolver(), "hide_navigation_bar", 0);
-		// スクショを許可
-		System.putInt(getContentResolver(), "screen_capture_on", 1);
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				// 0.8秒後に設定アプリを開く
-				startActivity(new Intent(Settings.ACTION_SETTINGS));
-			}
-		}, 800);
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if ((MODEL.equals("TAB-A05-BD")||MODEL.equals("TAB-A05-BA1"))&&(!new File("/factory/count_dcha_completed").exists())) {
+      setContentView(R.layout.skip);
+      return;
     }
+    setContentView(R.layout.main);
+    System.putInt(getContentResolver(), "dcha_state", 3);
+    System.putInt(getContentResolver(), "hide_navigation_bar", 0);
+    System.putInt(getContentResolver(), "allow_screen_shot", 1);
+    System.putInt(getContentResolver(), "screen_capture_on", 1);
+    new Handler().postDelayed(new Runnable() {
+      public void run() {
+        startActivity(new Intent(Settings.ACTION_SETTINGS));
+      }
+    }, 800);
+  }
 }

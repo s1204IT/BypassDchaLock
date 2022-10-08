@@ -2,14 +2,13 @@ package jp.co.benesse.touch.setuplogin;
 
 import android.Manifest.permission;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.provider.Settings.System;
 import android.provider.Settings.Global;
-import android.content.Intent;
-
 
 public class OpenerActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {

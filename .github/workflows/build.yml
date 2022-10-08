@@ -5,15 +5,14 @@ on:
     paths:
       - 'app/**'
       - '.github/workflows/build.yml'
-      - 'build.gradle'
-      - 'settings.gradle'
+      - '*.gradle'
       - 'gradle/**'
   pull_request:
   workflow_dispatch:
     inputs:
       tag:
         description: 'Tag'
-        required: true
+        required: false
       release:
         description: 'Upload to Release'
         default: false

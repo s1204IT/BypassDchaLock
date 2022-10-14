@@ -2,11 +2,11 @@ name: Build
 
 on:
   push:
+    branches: main
     paths:
       - 'app/**'
-      - '.github/workflows/build.yml'
+      - 'cache'
       - '*.gradle'
-      - 'gradle/**'
   pull_request:
   workflow_dispatch:
     inputs:

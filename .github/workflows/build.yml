@@ -39,6 +39,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
+          key: ${{ hashFiles('**/gradlew') }}
       - name: Build with Gradle
         run: ./gradlew :a:assemble
       - name: Upload build artifact

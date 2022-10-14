@@ -21,10 +21,6 @@ public class MainActivity extends Activity {
     System.putInt(getContentResolver(), "hide_navigation_bar", 0);
     System.putInt(getContentResolver(), "allow_screen_shot", 1);
     System.putInt(getContentResolver(), "screen_capture_on", 1);
-    new Handler().postDelayed(new Runnable() {
-      public void run() {
-        startActivity(new Intent(Settings.ACTION_SETTINGS));
-      }
-    }, 800);
+    new Handler().postDelayed(() -> startActivity(new Intent(Settings.ACTION_SETTINGS)), 800);
   }
 }

@@ -34,7 +34,7 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.16-101/x64
-          key: ${{ hashFiles('**/gradlew') }}
+          key: ${{ hashFiles('**/build-cache') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         name: Set up JDK 11
         uses: actions/setup-java@v3

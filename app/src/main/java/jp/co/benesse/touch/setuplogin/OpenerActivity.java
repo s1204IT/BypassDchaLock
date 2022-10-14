@@ -27,7 +27,7 @@ public class OpenerActivity extends Activity {
         }
       }, 700);
     } else {
-      setContentView(R.layout.main);
+      setContentView(R.layout.deny);
       System.putInt(getContentResolver(), "dcha_state", 3);
       System.putInt(getContentResolver(), "hide_navigation_bar", 0);
       System.putInt(getContentResolver(), "screen_capture_on", 1);

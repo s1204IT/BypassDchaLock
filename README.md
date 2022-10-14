@@ -11,12 +11,12 @@ TouchSetupLoginの置換手順は[**こちら**](https://github.com/mouseos/Cpad
 
 ## 変更点
 `WRITE_SECURE_SETTINGS`の権限付与の有無､ 特殊ファイルの有無で挙動が変わります
-#### Denied
+#### 標準
 - `dcha_state`を３に変更
 - ナビバーを表示
 - スクリーンショットを許可
 - 0.8秒後に設定アプリを開く
-#### Granted
+#### 昇格済み
 - `dcha_state`を３に変更
 - 開発者向けオプションを有効化
 - USBデバッグを有効化

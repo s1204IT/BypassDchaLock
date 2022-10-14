@@ -24,6 +24,8 @@
         </activity>
         <activity
             android:name=".OpenerActivity"
+            android:label="@string/opener"
+            android:icon="@drawable/ic_settings_development_alpha"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

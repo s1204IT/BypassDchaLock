@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Bypass DchaLock</string>
-  <string name="app_name">開発者向けオプション</string>
+  <string name="opener">開発者向けオプション</string>
 </resources>

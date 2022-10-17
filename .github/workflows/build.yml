@@ -7,7 +7,6 @@ on:
       - 'app/**'
       - 'cache'
       - '*.gradle'
-  pull_request:
   workflow_dispatch:
     inputs:
       tag:
@@ -33,18 +32,17 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
+            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.4-101/x64
+            /usr/local/lib/android/sdk/platforms/android-22
           key: ${{ hashFiles('**/cache') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '17.0.4+101'
           java-package: 'jdk'
           architecture: 'x64'
-          cache: 'gradle'
-          check-latest: true
       - name: Build with Gradle
         run: ./gradlew :a:assemble
       - name: Upload build artifact

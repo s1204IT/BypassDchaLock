@@ -11,15 +11,19 @@ on:
     inputs:
       upload:
         description: 'Upload APK'
-        required: false
+        type: boolean
+        required: true
+        default: false
       tag:
         description: 'Tag'
+        type: string
         required: false
+        default: ''
       release:
         description: 'Upload to Release'
-        default: false
-        required: true
         type: boolean
+        required: true
+        default: false
 
 jobs:
   build:

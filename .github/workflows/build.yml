@@ -9,6 +9,9 @@ on:
       - '*.gradle'
   workflow_dispatch:
     inputs:
+      upload:
+        description: 'Upload APK'
+        required: false
       tag:
         description: 'Tag'
         required: false
@@ -33,7 +36,7 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             /opt/hostedtoolcache
-            /usr/local/lib/android/sdk
+            /usr/local/lib/android/sdk/platform
           key: ${{ hashFiles('**/cache') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         name: Set up JDK
@@ -45,7 +48,8 @@ jobs:
           architecture: 'x64'
       - name: Build with Gradle
         run: ./gradlew :a:assemble
-      - name: Upload build artifact
+      - if: ${{ github.event.inputs.upload == 'true' }}
+        name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
           name: built-apk

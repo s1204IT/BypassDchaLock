@@ -9,7 +9,7 @@ import android.provider.Settings.System;
 import java.io.File;
 import static android.os.Build.MODEL;
 
-public class MainActivity extends Activity {
+public class LoginSettingActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     if ((MODEL.equals("TAB-A05-BD")||MODEL.equals("TAB-A05-BA1"))&&(!new File("/factory/count_dcha_completed").exists())) {

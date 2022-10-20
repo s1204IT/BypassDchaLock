@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginSettingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".OpenerActivity"
-            android:label="@string/opener"
+            android:label="@string/settings_development"
             android:icon="@drawable/ic_settings_development_alpha"
             android:exported="true">
             <intent-filter>

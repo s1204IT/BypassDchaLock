@@ -39,24 +39,24 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.4-101/x64
-            /usr/local/lib/android/sdk/platforms/android-22
+            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.5-8/x64
+            /usr/local/lib/android/sdk/platforms/android-28
           key: ${{ hashFiles('**/cache') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17.0.4+101'
+          java-version: '17.0.5+8'
           java-package: 'jdk'
           architecture: 'x64'
       - name: Build with Gradle
-        run: ./gradlew :a:assemble
+        run: ./gradlew :app:assemble
       - if: ${{ github.event.inputs.upload == 'true' }}
         name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: built-apk
+          name: BypassDchaLock_built-apk
           path: app/build/outputs/apk
       - name: Release
         uses: softprops/action-gh-release@v1

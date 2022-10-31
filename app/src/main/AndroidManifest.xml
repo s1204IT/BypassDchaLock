@@ -9,6 +9,9 @@
     <uses-permission
         android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
+    <uses-feature
+        android:name="android.software.device_admin"
+        android:required="false" />
     <application
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
@@ -32,5 +35,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".DeviceAdminReceiver"
+            android:label="@string/settings_development"
+            android:description="@string/uninstall_block"
+            android:icon="@drawable/ic_settings_development_alpha"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin"
+                tools:ignore="DeviceAdmin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

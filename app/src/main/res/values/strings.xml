@@ -2,4 +2,5 @@
 <resources>
   <string name="app_name">Bypass DchaLock</string>
   <string name="settings_development">開発者向けオプション</string>
+  <string name="uninstall_block">アンインストールを阻止します</string>
 </resources>

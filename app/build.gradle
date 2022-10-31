@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 28
+    compileSdk 22
 
     defaultConfig {
         applicationId "jp.co.benesse.touch.setuplogin"
         minSdk 22
-        targetSdk 28
+        targetSdk 22
         versionCode 12
         versionName "1.6.0"
     }

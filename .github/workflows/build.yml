@@ -40,7 +40,7 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.5-8/x64
-            /usr/local/lib/android/sdk/platforms/android-28
+            /usr/local/lib/android/sdk/platforms/android-22
           key: ${{ hashFiles('**/cache') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         name: Set up JDK

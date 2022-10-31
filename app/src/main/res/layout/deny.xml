@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center">
     <TextView
-        android:text="dcha_stateを３に変更しました\nスクリーンショットを許可しました\n設定アプリを開きます...\n\nWRITE_SECURE_SETTINGS が付与されていません"
+        android:text="設定アプリを開きます...\n\n\n※WRITE_SECURE_SETTINGS が付与されていません"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="HardcodedText" />

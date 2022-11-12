@@ -21,14 +21,14 @@ public class OpenerActivity extends Activity {
       System.putInt(getContentResolver(), "screen_capture_on", 1);
       System.putInt(getContentResolver(), "allow_screen_shot", 1);
       startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS));
-      new Handler().postDelayed(() -> System.putInt(getContentResolver(), "dcha_state", 0), 700);
+      new Handler().postDelayed(() -> System.putInt(getContentResolver(), "dcha_state", 0), 1000);
     } else {
       setContentView(R.layout.deny);
       System.putInt(getContentResolver(), "dcha_state", 3);
       System.putInt(getContentResolver(), "hide_navigation_bar", 0);
       System.putInt(getContentResolver(), "screen_capture_on", 1);
       System.putInt(getContentResolver(), "allow_screen_shot", 1);
-      new Handler().postDelayed(() -> startActivity(new Intent(Settings.ACTION_SETTINGS)), 800);
+      new Handler().postDelayed(() -> startActivity(new Intent(Settings.ACTION_SETTINGS)), 1000);
     }
   }
 }

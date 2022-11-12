@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center">
     <TextView
-        android:text="dcha_stateが３になった形跡が無いため､\nこのアプリを実行する必要はありません｡"
+        android:text="@string/skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="HardcodedText" />

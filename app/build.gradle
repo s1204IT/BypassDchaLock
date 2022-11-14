@@ -10,4 +10,5 @@ android {
         versionCode 14
         versionName "1.6.2"
     }
+    namespace 'jp.co.benesse.touch.setuplogin'
 }

@@ -10,6 +10,11 @@ android {
         targetSdk 22
         versionCode 15
         versionName "1.6.3"
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources true
+        }
     }
     namespace 'jp.co.benesse.touch.setuplogin'
 }

@@ -14,7 +14,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            shrinkResources true
+            shrinkResources false
         }
     }
     namespace 'jp.co.benesse.touch.setuplogin'

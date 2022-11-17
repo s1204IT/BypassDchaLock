@@ -16,7 +16,7 @@ public class OpenerActivity extends Activity {
         setContentView(R.layout.granted);
         BenesseExtension.setDchaState(3);
         startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS));
-        new Handler().postDelayed(() -> BenesseExtension.setDchaState(3), 1000);
+        new Handler().postDelayed(() -> BenesseExtension.setDchaState(0), 1000);
       } else {
         setContentView(R.layout.deny);
         BenesseExtension.setDchaState(3);

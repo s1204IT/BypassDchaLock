@@ -10,6 +10,7 @@ android {
         targetSdk 22
         versionCode 15
         versionName "1.6.3"
+    }
     buildTypes {
         release {
             minifyEnabled false

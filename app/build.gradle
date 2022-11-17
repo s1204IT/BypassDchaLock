@@ -13,3 +13,7 @@ android {
     }
     namespace 'jp.co.benesse.touch.setuplogin'
 }
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+}

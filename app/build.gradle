@@ -8,8 +8,12 @@ android {
         minSdk 22
         //noinspection ExpiredTargetSdkVersion
         targetSdk 22
-        versionCode 14
-        versionName "1.6.2"
+        versionCode 15
+        versionName "1.6.3"
     }
     namespace 'jp.co.benesse.touch.setuplogin'
+}
+
+dependencies {
+    implementation files('libs/IBenesseExtensionLibrary.jar')
 }

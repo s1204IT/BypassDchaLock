@@ -4,7 +4,7 @@
   <string name="settings_development">開発者向けオプション</string>
   <string name="uninstall_block">アンインストールを阻止します</string>
   <string name="main">設定アプリを開きます...</string>
-  <string name="deny">設定アプリを開きます...\n\n\n※WRITE_SECURE_SETTINGS が付与されていません</string>
+  <string name="deny">開発者向けオプションを有効にしてください</string>
   <string name="granted">開発者向けオプションを開きます...</string>
-  <string name="skip">dcha_stateが３になった形跡が無いため､\nこのアプリを実行する必要はありません｡</string>
+  <string name="skip">dcha_stateが３になった形跡が無いため､\nこのアプリを実行する必要はありません</string>
 </resources>

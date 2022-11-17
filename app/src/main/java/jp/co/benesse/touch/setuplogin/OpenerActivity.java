@@ -11,14 +11,18 @@ import android.provider.Settings.Global;
 public class OpenerActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
-      setContentView(R.layout.granted);
-      BenesseExtension.setDchaState(3);
-      startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS));
-      new Handler().postDelayed(() -> BenesseExtension.setDchaState(3), 1000);
-    } else {
-      setContentView(R.layout.deny);
-      BenesseExtension.setDchaState(3);
+    try {
+      if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
+        setContentView(R.layout.granted);
+        BenesseExtension.setDchaState(3);
+        startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS));
+        new Handler().postDelayed(() -> BenesseExtension.setDchaState(3), 1000);
+      } else {
+        setContentView(R.layout.deny);
+        BenesseExtension.setDchaState(3);
+      }
+    } catch (Settings.SettingNotFoundException e) {
+      e.printStackTrace();
     }
   }
 }

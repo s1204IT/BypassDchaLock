@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.BenesseExtention;
+import android.os.BenesseExtension;
 import android.provider.Settings;
 import android.provider.Settings.System;
 

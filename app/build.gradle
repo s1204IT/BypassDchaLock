@@ -15,5 +15,5 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation files('libs/IBenesseExtensionLibrary.jar')
 }

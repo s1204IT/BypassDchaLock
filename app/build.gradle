@@ -9,7 +9,7 @@ android {
         //noinspection ExpiredTargetSdkVersion
         targetSdk 22
         versionCode 15
-        versionName "1.7.0"
+        versionName "1.6.3"
     }
     namespace 'jp.co.benesse.touch.setuplogin'
 }

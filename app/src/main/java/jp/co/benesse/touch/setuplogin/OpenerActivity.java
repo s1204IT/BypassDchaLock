@@ -4,20 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.BenesseExtension;
+import android.provider.Settings;
 import android.provider.Settings.Global;
+
+import static android.os.BenesseExtension.setDchaState;
+import static android.provider.Settings.SettingNotFoundException;
 
 public class OpenerActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     try {
       if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
-        BenesseExtension.setDchaState(3);
+        setDchaState(3);
         startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-        new Handler().postDelayed(() -> BenesseExtension.setDchaState(0), 1000);
+        new Handler().postDelayed(() -> setDchaState(0), 1000);
       } else {
         setContentView(R.layout.deny);
-        BenesseExtension.setDchaState(3);
+        setDchaState(3);
       }
     } catch (Settings.SettingNotFoundException e) {
       e.printStackTrace();

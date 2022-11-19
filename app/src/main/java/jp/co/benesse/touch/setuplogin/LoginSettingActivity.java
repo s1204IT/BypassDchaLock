@@ -4,20 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.BenesseExtension;
+
+import static android.os.BenesseExtension.COUNT_DCHA_COMPLETED_FILE;
+import static android.os.BenesseExtension.setDchaState;
+import static android.provider.Settings.System.putInt;
 
 public class LoginSettingActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    if (!BenesseExtension.COUNT_DCHA_COMPLETED_FILE.exists()) {
+    if (!COUNT_DCHA_COMPLETED_FILE.exists()) {
       setContentView(R.layout.skip);
       return;
     }
     setContentView(R.layout.main);
-    BenesseExtension.setDchaState(3);
-    BenesseExtension.putInt("hide_navigation_bar", 0);
-    BenesseExtension.putInt("allow_screen_shot", 1);
-    BenesseExtension.putInt("screen_capture_on", 1);
-    new Handler().postDelayed(() -> startActivity(new Intent("android.settings.SETTINGS")), 1000);
+    setDchaState(3);
+    putInt(getContentResolver(), "hide_navigation_bar", 0);
+    putInt(getContentResolver(), "allow_screen_shot", 1);
+    putInt(getContentResolver(), "screen_capture_on", 1);
+    new Handler().postDelayed(() -> startActivity(new Intent("android.settings.DEVICE_INFO_SETTINGS")), 1000);
   }
 }

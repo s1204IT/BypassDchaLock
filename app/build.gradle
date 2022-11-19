@@ -10,12 +10,6 @@ android {
         versionCode 15
         versionName "1.6.3"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            shrinkResources false
-        }
-    }
     namespace 'jp.co.benesse.touch.setuplogin'
 }
 

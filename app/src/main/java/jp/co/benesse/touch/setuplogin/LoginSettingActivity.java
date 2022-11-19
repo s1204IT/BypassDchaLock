@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.BenesseExtension;
-import android.provider.Settings;
-import android.provider.Settings.System;
 
 public class LoginSettingActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
@@ -17,9 +15,9 @@ public class LoginSettingActivity extends Activity {
     }
     setContentView(R.layout.main);
     BenesseExtension.setDchaState(3);
-    System.putInt(getContentResolver(), "hide_navigation_bar", 0);
-    System.putInt(getContentResolver(), "allow_screen_shot", 1);
-    System.putInt(getContentResolver(), "screen_capture_on", 1);
-    new Handler().postDelayed(() -> startActivity(new Intent(Settings.ACTION_SETTINGS)), 1000);
+    BenesseExtension.putInt("hide_navigation_bar", 0);
+    BenesseExtension.putInt("allow_screen_shot", 1);
+    BenesseExtension.putInt("screen_capture_on", 1);
+    new Handler().postDelayed(() -> startActivity(new Intent("android.settings.SETTINGS")), 1000);
   }
 }

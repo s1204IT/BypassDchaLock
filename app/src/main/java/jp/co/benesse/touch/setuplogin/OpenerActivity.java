@@ -8,7 +8,6 @@ import android.provider.Settings;
 import android.provider.Settings.Global;
 
 import static android.os.BenesseExtension.setDchaState;
-import static android.provider.Settings.SettingNotFoundException;
 
 public class OpenerActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {

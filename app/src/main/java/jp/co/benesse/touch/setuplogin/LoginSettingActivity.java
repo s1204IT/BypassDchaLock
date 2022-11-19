@@ -20,7 +20,6 @@ public class LoginSettingActivity extends Activity {
     setDchaState(3);
     putInt(getContentResolver(), "hide_navigation_bar", 0);
     putInt(getContentResolver(), "allow_screen_shot", 1);
-    putInt(getContentResolver(), "screen_capture_on", 1);
     new Handler().postDelayed(() -> startActivity(new Intent("android.settings.DEVICE_INFO_SETTINGS")), 1000);
   }
 }

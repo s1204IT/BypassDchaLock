@@ -13,7 +13,7 @@ public class OpenerActivity extends Activity {
     try {
       if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
         BenesseExtension.setDchaState(3);
-        startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS");
+        startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
         new Handler().postDelayed(() -> BenesseExtension.setDchaState(0), 1000);
       } else {
         setContentView(R.layout.deny);

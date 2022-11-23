@@ -10,6 +10,14 @@ android {
         versionCode 16
         versionName "1.6.4"
     }
+    buildTypes {
+        debug {
+            minifyEnabled true
+        }
+        release {
+            minifyEnabled true
+        }
+    }
     namespace 'jp.co.benesse.touch.setuplogin'
 }
 

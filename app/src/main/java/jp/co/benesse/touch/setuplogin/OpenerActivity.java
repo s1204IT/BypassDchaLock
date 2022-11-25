@@ -16,7 +16,9 @@ public class OpenerActivity extends Activity {
       if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
         setDchaState(3);
         startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-        new Handler().postDelayed(() -> setDchaState(0), 1000);
+        if (Global.getInt(getContentResolver(), Global.ADB_ENABLED) == 1) {
+          new Handler().postDelayed(() -> setDchaState(0), 1000);
+        }
       } else {
         setContentView(R.layout.deny);
         setDchaState(3);

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'jp.co.benesse.touch.setuplogin'
     compileSdk 22
-
     defaultConfig {
         minSdk 22
         //noinspection ExpiredTargetSdkVersion
@@ -18,9 +18,4 @@ android {
             minifyEnabled true
         }
     }
-    namespace 'jp.co.benesse.touch.setuplogin'
-}
-
-dependencies {
-    implementation files('libs/IBenesseExtensionLibrary.jar')
 }

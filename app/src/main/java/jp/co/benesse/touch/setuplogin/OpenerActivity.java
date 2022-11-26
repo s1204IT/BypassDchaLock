@@ -4,28 +4,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
-import android.provider.Settings.Global;
 
-import static android.os.BenesseExtension.setDchaState;
+import static android.provider.Settings.Global.getInt;
+import static android.provider.Settings.SettingNotFoundException;
+import static android.provider.Settings.System.putInt;
 
 public class OpenerActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     try {
-      if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
-        setDchaState(3);
+      if (getInt(getContentResolver(), "development_settings_enabled") == 1) {
+        putInt(getContentResolver(), "dcha_state", 3);
         super.onPause();
         finishAndRemoveTask();
         startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-        if (Global.getInt(getContentResolver(), Global.ADB_ENABLED) == 1) {
-          new Handler().postDelayed(() -> setDchaState(0), 1000);
+        if (getInt(getContentResolver(), "adb_enabled") == 1) {
+          new Handler().postDelayed(() -> putInt(getContentResolver(), "dcha_state", 0), 1000);
         }
       } else {
         setContentView(R.layout.deny);
-        setDchaState(3);
+        putInt(getContentResolver(), "dcha_state", 3);
       }
-    } catch (Settings.SettingNotFoundException e) {
+    } catch (SettingNotFoundException e) {
       e.printStackTrace();
     }
   }

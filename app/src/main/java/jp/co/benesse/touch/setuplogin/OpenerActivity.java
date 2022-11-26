@@ -22,8 +22,8 @@ public class OpenerActivity extends Activity {
           new Handler().postDelayed(() -> putInt(getContentResolver(), "dcha_state", 0), 1000);
         }
       } else {
-        setContentView(R.layout.deny);
         putInt(getContentResolver(), "dcha_state", 3);
+        setContentView(R.layout.deny);
       }
     } catch (SettingNotFoundException e) {
       e.printStackTrace();

@@ -3,9 +3,9 @@ name: Build
 on:
   push:
     paths:
+      - '.github/workflows/build.yml'
       - 'app/**'
       - 'cache'
-      - '*.gradle'
   workflow_dispatch:
     inputs:
       upload:
@@ -17,7 +17,7 @@ on:
         description: 'Tag'
         type: string
         required: false
-        default: ''
+        default: 'v1.'
       release:
         description: 'Upload to Release'
         type: boolean
@@ -37,7 +37,7 @@ jobs:
         with:
           path: |
             ~/.gradle/caches
-            ~/.gradle/wrapper
+            ~/.gradle/wrapper/dists/gradle-7.4-bin
             /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.5-8/x64
             /usr/local/lib/android/sdk/platforms/android-22
           key: ${{ hashFiles('**/cache') }}
@@ -50,7 +50,7 @@ jobs:
           java-package: 'jdk'
           architecture: 'x64'
       - name: Build with Gradle
-        run: ./gradlew :app:assemble
+        run: ./gradlew assemble
       - if: ${{ github.event.inputs.upload == 'true' }}
         name: Upload build artifact
         uses: actions/upload-artifact@v3

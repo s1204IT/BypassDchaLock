@@ -10,12 +10,4 @@ android {
         versionCode 18
         versionName "1.6.6"
     }
-    buildTypes {
-        debug {
-            minifyEnabled true
-        }
-        release {
-            minifyEnabled true
-        }
-    }
 }

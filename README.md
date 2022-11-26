@@ -6,8 +6,13 @@
 https://github.com/s1204IT/BypassDchaLock/releases/latest/download/BypassDchaLock.apk
 ```
 ### 注意点
-TouchSetupLoginの置換手順は[**こちら**](https://github.com/mouseos/Cpad_dcha_3_changer/blob/main/README.md#%E6%BA%96%E5%82%99 "mouseos/Cpad_dcha_3_changer")からご確認願います｡
-<br>
+`TouchSetupLogin` の置換手順は[**こちら**](https://github.com/mouseos/Cpad_dcha_3_changer/blob/main/README.md#%E6%BA%96%E5%82%99 "mouseos/Cpad_dcha_3_changer")からご確認願います｡
+
+#### 対象端末
+- **TAB-A05-BD** (**CTX**)
+- **TAB-A05-BA1** (**CTZ**)
+
+これら以外の端末はサポート対象外とします｡
 
 ### 動作
 - **DchaState** を３に変更

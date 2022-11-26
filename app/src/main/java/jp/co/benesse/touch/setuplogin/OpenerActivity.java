@@ -15,6 +15,8 @@ public class OpenerActivity extends Activity {
     try {
       if (Global.getInt(getContentResolver(), Global.DEVELOPMENT_SETTINGS_ENABLED) == 1) {
         setDchaState(3);
+        super.onPause();
+        finishAndRemoveTask();
         startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
         if (Global.getInt(getContentResolver(), Global.ADB_ENABLED) == 1) {
           new Handler().postDelayed(() -> setDchaState(0), 1000);

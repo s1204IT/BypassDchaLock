@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">Bypass DchaLock</string>
   <string name="settings_development">開発者向けオプション</string>
   <string name="uninstall_block">アンインストールを阻止します</string>
-  <string name="main">設定アプリを開きます…</string>
+  <string name="main" tools:ignore="TypographyEllipsis">設定アプリを開きます...</string>
   <string name="deny">開発者向けオプションを有効にしてください</string>
   <string name="skip">DchaStateが３になった形跡が無いため､\nこのアプリを実行する必要はありません</string>
 </resources>

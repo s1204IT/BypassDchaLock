@@ -15,10 +15,10 @@ public class LoginSettingActivity extends Activity {
       setContentView(R.layout.skip);
       return;
     }
-    putInt(getContentResolver(), "dcha_state", 3);
     putInt(getContentResolver(), "hide_navigation_bar", 0);
     putInt(getContentResolver(), "allow_screen_shot", 1);
     setContentView(R.layout.main);
-    new Handler().postDelayed(() -> startActivity(new Intent("android.settings.DEVICE_INFO_SETTINGS")), 1000);
+    new Handler().postDelayed(() -> startActivity(new Intent("android.settings.SETTINGS")), 1000);
+    putInt(getContentResolver(), "dcha_state", 3);
   }
 }

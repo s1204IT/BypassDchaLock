@@ -23,7 +23,7 @@ public class OpenerActivity extends Activity {
         }
       } else {
         putInt(getContentResolver(), "dcha_state", 3);
-        setContentView(R.layout.deny);
+        setContentView(R.layout.disabled);
       }
     } catch (SettingNotFoundException e) {
       e.printStackTrace();

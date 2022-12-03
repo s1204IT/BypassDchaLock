@@ -18,7 +18,6 @@ https://github.com/s1204IT/BypassDchaLock/releases/latest/download/BypassDchaLoc
 - **DchaState** を３に変更
 - ナビゲーションバーを表示
 - スクリーンショットを許可
-- 1秒後に "**タブレット情報**" を開く
-  - 左上の [←] から設定アプリに戻れます
+- 設定アプリを開く
 
 セットアップ後は開発者向けオプションを開くためのアプリとして使う事が出来ます｡

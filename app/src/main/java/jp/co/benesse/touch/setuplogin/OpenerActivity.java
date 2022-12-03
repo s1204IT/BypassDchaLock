@@ -10,7 +10,8 @@ import static android.provider.Settings.SettingNotFoundException;
 import static android.provider.Settings.System.putInt;
 
 public class OpenerActivity extends Activity {
-  public void onCreate(Bundle savedInstanceState) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     try {
       if (getInt(getContentResolver(), "development_settings_enabled") == 1) {

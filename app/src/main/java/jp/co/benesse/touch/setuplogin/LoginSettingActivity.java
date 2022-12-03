@@ -9,7 +9,8 @@ import java.io.File;
 import static android.provider.Settings.System.putInt;
 
 public class LoginSettingActivity extends Activity {
-  public void onCreate(Bundle savedInstanceState) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     if (!(new File("/factory/count_dcha_completed")).exists()) {
       setContentView(R.layout.skip);

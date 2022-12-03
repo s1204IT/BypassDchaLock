@@ -37,7 +37,7 @@ jobs:
         with:
           path: |
             ~/.gradle/caches
-            ~/.gradle/wrapper/dists/gradle-7.4-bin
+            ~/.gradle/wrapper/dists/gradle-7.3.3-bin
             /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.5-8/x64
             /usr/local/lib/android/sdk/platforms/android-22
           key: ${{ hashFiles('**/cache') }}

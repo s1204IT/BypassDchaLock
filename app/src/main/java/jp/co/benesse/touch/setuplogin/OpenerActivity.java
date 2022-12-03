@@ -13,18 +13,13 @@ public class OpenerActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    putInt(getContentResolver(), "dcha_state", 3);
+    super.onPause();
+    finishAndRemoveTask();
+    startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
     try {
-      if (getInt(getContentResolver(), "development_settings_enabled") == 1) {
-        putInt(getContentResolver(), "dcha_state", 3);
-        super.onPause();
-        finishAndRemoveTask();
-        startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-        if (getInt(getContentResolver(), "adb_enabled") == 1) {
-          new Handler().postDelayed(() -> putInt(getContentResolver(), "dcha_state", 0), 1000);
-        }
-      } else {
-        putInt(getContentResolver(), "dcha_state", 3);
-        setContentView(R.layout.disabled);
+      if ((getInt(getContentResolver(), "adb_enabled") == 1) && (getInt(getContentResolver(), "development_settings_enabled") == 1)) {
+        new Handler().postDelayed(() -> putInt(getContentResolver(), "dcha_state", 0), 1000);
       }
     } catch (SettingNotFoundException e) {
       e.printStackTrace();

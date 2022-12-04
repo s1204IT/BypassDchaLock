@@ -5,7 +5,8 @@ on:
     paths:
       - '.github/workflows/build.yml'
       - 'app/**'
-      - 'cache'
+      - 'gradle/wrapper/gradle-wrapper.properties'
+      - '*.gradle'
   workflow_dispatch:
     inputs:
       upload:

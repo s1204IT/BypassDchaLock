@@ -38,7 +38,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper/dists/gradle-7.3.3-bin
-            /usr/local/lib/android/sdk/platforms/android-22
+            /usr/local/lib/android/sdk/platforms/android-28
           key: ${{ hashFiles('**/cache') }}
       - name: Show Java version
         run: java -version

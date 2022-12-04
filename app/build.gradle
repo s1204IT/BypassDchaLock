@@ -2,9 +2,9 @@ apply plugin: 'com.android.application'
 
 android {
     namespace 'jp.co.benesse.touch.setuplogin'
-    compileSdk 22
+    compileSdk 28
     defaultConfig {
-        minSdk 22
+        minSdk 21
         //noinspection ExpiredTargetSdkVersion
         targetSdk 22
         versionCode 20

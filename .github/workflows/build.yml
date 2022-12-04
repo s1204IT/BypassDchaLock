@@ -30,10 +30,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
       - name: Cache
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache@main
         with:
           path: |
             ~/.gradle/caches
@@ -43,7 +43,7 @@ jobs:
           key: ${{ hashFiles('**/cache') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@main
         with:
           distribution: 'temurin'
           java-version: '17.0.5+8'
@@ -53,12 +53,13 @@ jobs:
         run: ./gradlew assemble
       - if: ${{ github.event.inputs.upload == 'true' }}
         name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: BypassDchaLock-Built
-          path: app/build/outputs/apk
+          path: app/build/outputs/apk/**/*.apk
+          if-no-files-found: ignore
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@master
         if: ${{ github.event.inputs.release == 'true' }}
         with:
           tag_name: ${{ github.event.inputs.tag }}

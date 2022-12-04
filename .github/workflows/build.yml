@@ -38,17 +38,10 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper/dists/gradle-7.3.3-bin
-            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.5-8/x64
             /usr/local/lib/android/sdk/platforms/android-22
           key: ${{ hashFiles('**/cache') }}
-      - if: steps.cache.outputs.cache-hit != 'true'
-        name: Set up JDK
-        uses: actions/setup-java@main
-        with:
-          distribution: 'temurin'
-          java-version: '17.0.5+8'
-          java-package: 'jdk'
-          architecture: 'x64'
+      - name: Show Java version
+        run: java -version
       - name: Build with Gradle
         run: ./gradlew assemble
       - if: ${{ github.event.inputs.upload == 'true' }}

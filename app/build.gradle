@@ -10,4 +10,12 @@ android {
         versionCode 20
         versionName "1.6.8"
     }
+    buildTypes {
+        debug {
+            minifyEnabled true
+        }
+        release {
+            minifyEnabled true
+        }
+    }
 }

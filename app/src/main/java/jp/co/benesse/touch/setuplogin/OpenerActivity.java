@@ -14,7 +14,7 @@ public class OpenerActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     putInt(getContentResolver(), "dcha_state", 3);
-    super.onPause();
+    super.onDestroy();
     finishAndRemoveTask();
     startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
     try {

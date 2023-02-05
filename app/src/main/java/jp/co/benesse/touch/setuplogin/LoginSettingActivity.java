@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import java.io.File;
 
-import static android.content.Intent.ACTION_DELETE
+import static android.content.Intent.ACTION_DELETE;
 import static android.net.Uri.parse;
 import static android.provider.Settings.System.putInt;
 

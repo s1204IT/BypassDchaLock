@@ -29,16 +29,15 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper/dists
           key: ${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-      - name: Show Java version
-        run: java -version
-      - name: Set app version
-        run: echo "app_ver=$(grep versionName ./app/build.gradle | awk '{print $2}' | tr -d \")" >> $GITHUB_ENV
-      - name: Build with Gradle
-        run: ./gradlew assemble
-      - name: Upload build artifact
+      - name: Build
+        run: |
+          ./gradlew assemble
+          echo "version=$(grep versionName ./app/build.gradle | awk '{print $2}' | tr -d \")" >> $GITHUB_ENV
+          echo "commit=$(echo ${{ github.sha }} | cut -c 1-7)" >> $GITHUB_ENV
+      - name: Upload built APKs
         uses: actions/upload-artifact@v3
         with:
-          name: BypassDchaLock_v${{ env.app_ver }}-Built
+          name: BypassDchaLock(v${{ env.version }}@${{ env.commit }})
           path: app/build/outputs/apk/**/*.apk
           if-no-files-found: ignore
       - name: Release

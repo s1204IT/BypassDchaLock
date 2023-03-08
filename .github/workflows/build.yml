@@ -20,8 +20,10 @@ jobs:
     name: Build
     runs-on: ubuntu-20.04
     steps:
+
       - name: Check out
         uses: actions/checkout@v3
+
       - name: Cache
         uses: actions/cache@v3
         with:
@@ -29,17 +31,28 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper/dists
           key: ${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+
       - name: Build
         run: |
-          ./gradlew assemble --warning-mode all
+          ./gradlew assembleRelease --warning-mode all
           echo "version=$(grep versionName ./app/build.gradle | awk '{print $2}' | tr -d \")" >> $GITHUB_ENV
           echo "commit=$(echo ${{ github.sha }} | cut -c 1-7)" >> $GITHUB_ENV
-      - name: Upload built APKs
+
+      - name: Sign APK
+        run: |
+          if [[ -n "${{ secrets.KEY_X509 }}" ]] && [[ -n "${{ secrets.KEY_PKCS8 }}" ]]; then
+            echo "${{ secrets.KEY_X509 }}" | base64 -d > sign/cert.pem
+            echo "${{ secrets.KEY_PKCS8 }}" | base64 -d > sign/cert.pk8
+          fi
+          java -jar sign/signapk.jar sign/cert.pem sign/cert.pk8 app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/BypassDchaLock.apk
+
+      - name: Upload built APK
         uses: actions/upload-artifact@v3
         with:
           name: BypassDchaLock(v${{ env.version }}@${{ env.commit }})
           path: app/build/outputs/apk/**/*.apk
           if-no-files-found: ignore
+
       - name: Release
         uses: softprops/action-gh-release@v1
         if: ${{ github.event.inputs.release == 'true' }}
@@ -47,3 +60,4 @@ jobs:
           tag_name: v${{ env.app_ver }}
           draft: true
           prerelease: false
+          files: app/build/outputs/apk/release/BypassDchaLock.apk

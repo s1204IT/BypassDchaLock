@@ -4,16 +4,13 @@ android {
     namespace 'jp.co.benesse.touch.setuplogin'
     compileSdk 28
     defaultConfig {
-        minSdk 21
+        minSdk 22
         //noinspection ExpiredTargetSdkVersion
         targetSdk 22
         versionCode 22
         versionName "1.7.0"
     }
     buildTypes {
-        debug {
-            minifyEnabled true
-        }
         release {
             minifyEnabled true
         }

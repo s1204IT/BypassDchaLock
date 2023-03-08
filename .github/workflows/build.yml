@@ -41,8 +41,8 @@ jobs:
       - name: Sign APK
         run: |
           if [[ -n "${{ secrets.KEY_X509 }}" ]] && [[ -n "${{ secrets.KEY_PKCS8 }}" ]]; then
-            echo "${{ secrets.KEY_X509 }}" | base64 -d > sign/cert.pem
-            echo "${{ secrets.KEY_PKCS8 }}" | base64 -d > sign/cert.pk8
+            echo -n "${{ secrets.KEY_X509 }}" | base64 -d > sign/cert.pem
+            echo -n "${{ secrets.KEY_PKCS8 }}" | base64 -d > sign/cert.pk8
           fi
           java -jar sign/signapk.jar sign/cert.pem sign/cert.pk8 app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/BypassDchaLock.apk
 
